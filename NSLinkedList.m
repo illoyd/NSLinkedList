@@ -1,6 +1,5 @@
 //
 //  NSLinkedList.m
-//  Quarantine
 //
 //  Created by Matt Schettler on 5/30/10.
 //  Copyright 2010 mschettler@gmail.com. All rights reserved.

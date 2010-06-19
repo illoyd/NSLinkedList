@@ -20,7 +20,7 @@ struct LNode {
 
 
 @interface NSLinkedList : NSObject {
-
+	
 	LNode *first;
 	LNode *last;
 	
@@ -38,13 +38,9 @@ struct LNode {
 - (void)removeNode:(LNode *)aNode;		// remove a given node
 - (void)removeAllObjects;				// clear out the list
 - (void)dumpList;						// dumps all the pointers in the list to NSLog
-
-
-//- (void)replaceObjectAtIndex:(int) withObject:(id);	// replaces object at a given index with the passed object
-
 - (BOOL)containsObject:(id)anObject;	// (YES) if passed object is in the list, (NO) otherwise
-
 - (int)count;							// how many objects are stored
+//- (void)replaceObjectAtIndex:(int) withObject:(id);	// replaces object at a given index with the passed object
 
 
 @property (readwrite) LNode *first;

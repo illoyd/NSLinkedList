@@ -40,8 +40,6 @@
 	
 	if (anObject == nil) return;
 	
-	//NSLog(@"pushBack anObject retainCount=%d", [anObject retainCount]);
-	
 	LNode *n = LNodeMake(anObject, nil, last);
 	
 	if (size == 0) {
@@ -57,7 +55,7 @@
 
 
 - (void)pushFront:(id)anObject {
-
+	
 	if (anObject == nil) return;
 	
 	LNode *n = LNodeMake(anObject, first, nil);
@@ -81,12 +79,12 @@
 
 
 - (id)popBack {
-		
+	
 	if (size == 0) return nil;
 	
 	id ret = last->obj;
 	LNode *mem = last;
-
+	
     if (size == 1) { 
         first = last = NULL;
     } else {
@@ -102,7 +100,7 @@
 
 
 - (id)popFront {
-
+	
 	if (size == 0) return nil;
 	
 	id ret = first->obj;
@@ -123,7 +121,7 @@
 
 
 - (void)removeNode:(LNode *)aNode {
-
+	
 	if (size == 0) return;
 	
 	if (size == 1) {
@@ -174,7 +172,7 @@
 
 
 - (BOOL)containsObject:(id)anObject {
-
+	
 	for (LNode *n = first; n != nil; n=n->next) {
 		if (n->obj == anObject) {
 			return YES;

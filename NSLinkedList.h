@@ -1,9 +1,11 @@
 //
 //  NSLinkedList.h
+//  Quarantine
 //
 //  Created by Matt Schettler on 5/30/10.
 //  Copyright 2010 mschettler@gmail.com. All rights reserved.
 //
+//	V1.0
 //
 
 #import <Foundation/Foundation.h>
@@ -31,8 +33,8 @@ struct LNode {
 - (void)pushBack:(id)anObject;			// add an object to back of list
 - (void)pushFront:(id)anObject;			// add an object to front of list
 - (void)addObject:(id)anObject;			// same as pushBack
-- (void)popBack;						// remove object at end of list
-- (void)popFront;						// remove object at front of list
+- (id)popBack;							// remove object at end of list (returns it)
+- (id)popFront;							// remove object at front of list (returns it)
 - (void)removeNode:(LNode *)aNode;		// remove a given node
 - (void)removeAllObjects;				// clear out the list
 - (void)dumpList;						// dumps all the pointers in the list to NSLog

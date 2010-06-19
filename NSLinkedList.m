@@ -1,5 +1,6 @@
 //
 //  NSLinkedList.m
+//  Quarantine
 //
 //  Created by Matt Schettler on 5/30/10.
 //  Copyright 2010 mschettler@gmail.com. All rights reserved.
@@ -79,10 +80,13 @@
 }
 
 
-- (void)popBack {
+- (id)popBack {
+		
+	if (size == 0) return nil;
 	
-	if (size == 0) return;
-	
+	id ret = last->obj;
+	LNode *mem = last;
+
     if (size == 1) { 
         first = last = NULL;
     } else {
@@ -90,16 +94,19 @@
         last->next = NULL;
     }
 	
-	free(last);
+	free(mem);
 	size--;
-	return;
+	return ret;
 	
 }
 
 
-- (void)popFront {
+- (id)popFront {
 
-	if (size == 0) return;
+	if (size == 0) return nil;
+	
+	id ret = first->obj;
+	LNode *mem = first;
 	
     if (size == 1) { 
 		first = last = nil;
@@ -108,9 +115,9 @@
         first->prev = nil;
     }
 	
-	free(first);
+	free(mem);
 	size--;
-	return;
+	return ret;
 	
 }
 

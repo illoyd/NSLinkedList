@@ -196,9 +196,15 @@
 
 
 - (void)removeAllObjects {
-	for (LNode *n = first; n != nil; n=n->next) {
+
+	LNode *n = first;
+
+	while (n != nil) {
+		LNode *next = n->next;
 		free(n);
-	}	
+		n = next;
+	}
+		
 	first = last = nil;
 	size = 0;
 }

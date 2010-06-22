@@ -1,1 +1,19 @@
 A Simple Doubly linked list for Objective-C
+
+Example Usage:
+
+	NSLinkedList *myList = [[NSLinkedList alloc] init];
+
+	[myList addObject:obj2];
+	[myList addObject:obj3];
+	[myList pushFront:obj1];
+
+	// now contains obj1->obj2->obj3 in that order [NSStrings, or any object]
+	
+	// loop through
+	for (LNode *n = myList->next; n != nil; n=n->next) { 
+		NSString *theString = n->obj;
+
+		
+	}
+					

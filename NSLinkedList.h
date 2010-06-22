@@ -28,18 +28,26 @@ struct LNode {
 	
 }
 
-- (id)initWithObject:(id)anObject;		// init the linked list with a single object
+- (id)init;									// init an empty list
+- (id)initWithObject:(id)anObject;			// init the linked list with a single object
+- (void)pushBack:(id)anObject;				// add an object to back of list
+- (void)pushFront:(id)anObject;				// add an object to front of list
+- (void)addObject:(id)anObject;				// same as pushBack
+- (id)popBack;								// remove object at end of list (returns it)
+- (id)popFront;								// remove object at front of list (returns it)
+- (void)removeNode:(LNode *)aNode;			// remove a given node
+- (BOOL)removeObjectEqualTo:(id)anObject;	// removes object equal to anObject, returns (YES) on success
+- (void)removeAllObjects;					// clear out the list
+- (void)dumpList;							// dumps all the pointers in the list to NSLog
+- (BOOL)containsObject:(id)anObject;		// (YES) if passed object is in the list, (NO) otherwise
+- (int)count;								// how many objects are stored
+- (void)pushNodeBack:(LNode *)n;			// adds a node object to the end of the list
+- (void)pushNodeFront:(LNode *)n;			// adds a node object to the begining of the list
 
-- (void)pushBack:(id)anObject;			// add an object to back of list
-- (void)pushFront:(id)anObject;			// add an object to front of list
-- (void)addObject:(id)anObject;			// same as pushBack
-- (id)popBack;							// remove object at end of list (returns it)
-- (id)popFront;							// remove object at front of list (returns it)
-- (void)removeNode:(LNode *)aNode;		// remove a given node
-- (void)removeAllObjects;				// clear out the list
-- (void)dumpList;						// dumps all the pointers in the list to NSLog
-- (BOOL)containsObject:(id)anObject;	// (YES) if passed object is in the list, (NO) otherwise
-- (int)count;							// how many objects are stored
+
+
+
+
 //- (void)replaceObjectAtIndex:(int) withObject:(id);	// replaces object at a given index with the passed object
 
 

@@ -23,6 +23,7 @@
 	return self;
 }
 
+
 - (id)initWithObject:(id)anObject {
 	
 	if ((self = [super init]) == nil) return nil;
@@ -73,9 +74,39 @@
 
 
 - (void)addObject:(id)anObject {
-	
 	[self pushBack:anObject];
 }
+
+
+- (void)pushNodeBack:(LNode *)n {
+
+	if (n->obj == nil) return;
+	
+	if (size == 0) {
+		first = last = n;
+	} else {
+		last->next = n;
+		last = n;
+	}
+	
+	size++;
+	
+}
+
+- (void)pushNodeFront:(LNode *)n {
+	
+	if (n->obj == nil) return;
+		
+	if (size == 0) {
+		first = last = n;
+	} else {
+		first->prev = n;
+		first = n;
+	}
+	
+	size++;	
+}
+
 
 
 - (id)popBack {
@@ -146,6 +177,20 @@
 	free(aNode);
 	size--;
 	
+	
+}
+
+
+- (BOOL)removeObjectEqualTo:(id)anObject {
+	
+	for (LNode *n = first; n != nil; n=n->next) {
+		if (n->obj == anObject) {
+			[self removeNode:n];
+			return YES;
+		}
+	}	
+	
+	return NO;
 	
 }
 

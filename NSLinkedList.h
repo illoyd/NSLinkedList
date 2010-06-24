@@ -5,7 +5,7 @@
 //  Created by Matt Schettler on 5/30/10.
 //  Copyright 2010 mschettler@gmail.com. All rights reserved.
 //
-//	V1.0
+//	V1.1
 //
 
 #import <Foundation/Foundation.h>
@@ -45,17 +45,12 @@ struct LNode {
 - (void)pushNodeFront:(LNode *)n;			// adds a node object to the begining of the list
 
 
-
-
-
 //- (void)replaceObjectAtIndex:(int) withObject:(id);	// replaces object at a given index with the passed object
-
 
 @property (readwrite) LNode *first;
 @property (readwrite) LNode *last;
 
 @end
-
 
 
 LNode * LNodeMake(id obj, LNode *next, LNode *prev);	// convenience method for creating a LNode

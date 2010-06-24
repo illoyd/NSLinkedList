@@ -123,6 +123,7 @@
         last->next = NULL;
     }
 	
+	[mem->obj release];
 	free(mem);
 	size--;
 	return ret;
@@ -144,6 +145,7 @@
         first->prev = nil;
     }
 	
+	[mem->obj release];
 	free(mem);
 	size--;
 	return ret;
@@ -174,6 +176,7 @@
 		tmp->prev = aNode->prev;
 	}
 	
+	[aNode->obj release];
 	free(aNode);
 	size--;
 	
@@ -185,6 +188,7 @@
 	
 	for (LNode *n = first; n != nil; n=n->next) {
 		if (n->obj == anObject) {
+			[n->obj release];
 			[self removeNode:n];
 			return YES;
 		}
@@ -201,6 +205,7 @@
 
 	while (n != nil) {
 		LNode *next = n->next;
+		[n->obj release];
 		free(n);
 		n = next;
 	}
@@ -248,6 +253,6 @@ LNode * LNodeMake(id obj, LNode *next, LNode *prev) {
 	LNode *n = malloc(sizeof(LNode));
 	n->next = next;
 	n->prev = prev;
-	n->obj = obj;
+	n->obj = [obj retain];
 	return n;
 };

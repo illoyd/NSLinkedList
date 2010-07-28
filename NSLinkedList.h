@@ -24,7 +24,9 @@ struct LNode {
 	LNode *first;
 	LNode *last;
 	
-	unsigned int size;					
+	unsigned int size;
+	
+//	LNode *iter;
 	
 }
 
@@ -47,8 +49,8 @@ struct LNode {
 
 //- (void)replaceObjectAtIndex:(int) withObject:(id);	// replaces object at a given index with the passed object
 
-@property (readwrite) LNode *first;
-@property (readwrite) LNode *last;
+@property (readonly) LNode *first;
+@property (readonly) LNode *last;
 
 @end
 

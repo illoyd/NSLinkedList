@@ -8,10 +8,8 @@
 
 #import "NSLinkedList.h"
 
-
 @implementation NSLinkedList
 @synthesize first, last;
-
 
 - (id)init {
 	
@@ -93,6 +91,7 @@
 	
 }
 
+
 - (void)pushNodeFront:(LNode *)n {
 	
 	if (n->obj == nil) return;
@@ -106,7 +105,6 @@
 	
 	size++;	
 }
-
 
 
 - (id)popBack {
@@ -186,7 +184,7 @@
 
 - (BOOL)removeObjectEqualTo:(id)anObject {
 	
-	for (LNode *n = first; n != nil; n=n->next) {
+	for (LNode *n = first; n; n=n->next) {
 		if (n->obj == anObject) {
 			[n->obj release];
 			[self removeNode:n];
@@ -203,7 +201,7 @@
 
 	LNode *n = first;
 
-	while (n != nil) {
+	while (n) {
 		LNode *next = n->next;
 		[n->obj release];
 		free(n);
@@ -216,8 +214,8 @@
 
 
 - (void)dumpList {
-	for (LNode *n = first; n != nil; n=n->next) {
-		NSLog(@"0x%x", n);
+	for (LNode *n = first; n; n=n->next) {
+		NSLog(@"0x%x", (int)n);
 	}	
 }
 
@@ -229,10 +227,8 @@
 
 - (BOOL)containsObject:(id)anObject {
 	
-	for (LNode *n = first; n != nil; n=n->next) {
-		if (n->obj == anObject) {
-			return YES;
-		}
+	for (LNode *n = first; n; n=n->next) {
+		if (n->obj == anObject) return YES;
 	}
 	
 	return NO;
@@ -247,8 +243,6 @@
 
 
 @end
-
-
 LNode * LNodeMake(id obj, LNode *next, LNode *prev) {
 	LNode *n = malloc(sizeof(LNode));
 	n->next = next;
@@ -256,3 +250,5 @@ LNode * LNodeMake(id obj, LNode *next, LNode *prev) {
 	n->obj = [obj retain];
 	return n;
 };
+
+

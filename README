@@ -17,9 +17,11 @@ Example Usage:
 	// now contains obj1->obj2->obj3 in that order [NSStrings, or any object]
 	
 	// loop through, forward
-	for (LNode *n = myList->next; n != nil; n=n->next) { 
+	for (LNode *n = myList->first; n != nil; n=n->next) {
 		NSString *theString = n->obj;
-		
+	
+		NSLog(@"string: %@", theString);
+
 	}
 
 	// ...

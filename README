@@ -1,6 +1,5 @@
 A Simple Doubly linked list for Objective-C
 Linked Lists support efficient insertion/removal from anywhere in the list, whereas arrays are only efficient adding/removing to the end.
-Linked Lists also support much more efficient memory management 
 
 http://en.wikipedia.org/wiki/Linked_list
 "The principal benefit of a linked list over a conventional array is that the order of the linked items may be different from the order that the data items are stored in memory or on disk. For that reason, linked lists allow insertion and removal of nodes at any point in the list, with a constant number of operations.

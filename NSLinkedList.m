@@ -71,6 +71,16 @@
 }
 
 
+- (void)prependObject:(id)anObject {
+    [self pushFront:anObject];
+}
+
+
+- (void)appendObject:(id)anObject {
+    [self pushBack:anObject];
+}
+
+
 - (void)insertObject:(id)anObject beforeNode:(LNode *)node {
   [self insertObject:anObject betweenNode:node->prev andNode:node];
 }

@@ -51,6 +51,10 @@ struct LNode {
 - (void)insertObject:(id)anObject afterNode:(LNode *)node;
 - (void)insertObject:(id)anObject betweenNode:(LNode *)previousNode andNode:(LNode *)nextNode;
 
+// Prepend/append - simple references to keep my sanity
+- (void)prependObject:(id)anObject;
+- (void)appendObject:(id)anObject;
+
 //- (void)replaceObjectAtIndex:(int) withObject:(id);	// replaces object at a given index with the passed object
 
 @property (readonly) LNode *first;

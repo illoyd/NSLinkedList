@@ -71,6 +71,37 @@
 }
 
 
+- (void)insertObject:(id)anObject beforeNode:(LNode *)node {
+  [self insertObject:anObject betweenNode:node->prev andNode:node];
+}
+
+
+- (void)insertObject:(id)anObject afterNode:(LNode *)node {
+  [self insertObject:anObject betweenNode:node andNode:node->next];
+}
+
+
+- (void)insertObject:(id)anObject betweenNode:(LNode *)previousNode andNode:(LNode *)nextNode {
+
+	if (anObject == nil) return;
+	
+	LNode *n = LNodeMake(anObject, nextNode, previousNode);
+	
+	if (previousNode)
+	  previousNode->next = n;
+  else
+    first = n;
+
+	if (nextNode)
+	  nextNode->prev = n;
+  else
+    last = n;
+	
+	size++;
+
+}
+
+
 - (void)addObject:(id)anObject {
 	[self pushBack:anObject];
 }
